@@ -25,12 +25,13 @@ contract DegenerateDachshunds is Ownable, ERC721 {
     }
 
     // Reserve a few NFTs
-    function reserveNfts() public onlyOwner {
+    // TO BE MODIFIED
+    function reserveNfts(uint _count) public onlyOwner {
         uint totalMinted = _tokenIds.current();
 
-        require(totalMinted.add(50) < MAX_SUPPLY, "Not enough NFTs left to reserve");
+        require(totalMinted.add(_count) < MAX_SUPPLY, "Not enough NFTs left to reserve");
 
-        for (uint i = 0; i < 50; i++) {
+        for (uint i = 0; i < _count; i++) {
             _mintSingleNft();
         }
     }
