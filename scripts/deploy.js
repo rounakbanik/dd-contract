@@ -14,7 +14,7 @@ const main = async () => {
     let supply = await nftContract.totalSupply();
     console.log("The supply is", supply.toString());
 
-    let txn = await nftContract.reserveNfts();
+    let txn = await nftContract.reserveNfts(10, owner.address);
     await txn.wait()
 
     supply = await nftContract.totalSupply();
@@ -24,7 +24,7 @@ const main = async () => {
     await txn.wait();
 };
 
-// Test Contract address: 0x991a34615Ca638b31ED1243A76fe5677815607aA
+// Test Contract address: 0xFc21c3917922638D979fB965b2e2f022D5aDe464
 
 const runMain = async () => {
     try {
